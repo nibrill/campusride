@@ -8,7 +8,12 @@
 ![Angular](https://img.shields.io/badge/Angular-22-dd0031?logo=angular&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Firebase-opcional-ffca28?logo=firebase&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript&logoColor=white)
+[![CI](https://github.com/nibrill/campusride/actions/workflows/ci.yml/badge.svg)](https://github.com/nibrill/campusride/actions/workflows/ci.yml)
 ![License](https://img.shields.io/badge/license-MIT-green)
+
+### [▶ Probar la demo en vivo](https://nibrill.github.io/campusride/) · [Usar como plantilla](https://github.com/nibrill/campusride/generate)
+
+<img src="docs/demo.gif" alt="Demostración de CampusRide" width="260" />
 
 [🇪🇸 Español](#-español) · [🇬🇧 English](#-english)
 
@@ -83,6 +88,18 @@ npx cap add android
 npx cap sync && npx cap open android
 ```
 
+### 🧩 Úsalo como base para tu proyecto
+
+Este repositorio es una **plantilla**: pulsa [**Use this template**](https://github.com/nibrill/campusride/generate) para crear tu propia copia y luego:
+
+1. **Renombra la app:** `name` en `package.json`, `appId` y `appName` en `capacitor.config.ts`, y el `<title>` de `src/index.html`.
+2. **Cambia la identidad visual:** colores y gradiente en `src/theme/variables.scss` (variables `--ion-color-*` y `--cr-*`) e ícono en `src/assets/icon/favicon.svg`.
+3. **Adapta el modelo de datos:** las entidades están en `src/app/core/models.ts`.
+4. **Conecta tu backend:** toda la app habla con la clase abstracta `Backend` (`src/app/core/backend.ts`). Crea tu implementación (REST, Supabase, etc.) y regístrala en `src/main.ts`; no hay que tocar las pantallas.
+5. **Quita los datos de ejemplo:** las cuentas demo y los viajes de muestra se crean en `seed()` dentro de `src/app/core/local.backend.ts`.
+
+Las contribuciones son bienvenidas: revisa [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ### 🛠 Scripts
 
 | Comando | Descripción |
@@ -128,6 +145,10 @@ Sign in with the demo accounts (`pasajero@demo.cl` / `conductor@demo.cl`, passwo
 ### 🔥 Firebase (optional)
 
 Fill in the `firebase` block in `src/environments/environment.ts` (see `environment.example.ts`) and deploy the included Firestore rules with `npx firebase-tools deploy --only firestore:rules`.
+
+### 🧩 Use it as a starter
+
+Click [**Use this template**](https://github.com/nibrill/campusride/generate), then rename the app (`package.json`, `capacitor.config.ts`), restyle it in `src/theme/variables.scss`, and plug in your own backend by implementing the abstract `Backend` class (`src/app/core/backend.ts`) and registering it in `src/main.ts`. Try the [live demo](https://nibrill.github.io/campusride/) first.
 
 ### 📄 License
 
