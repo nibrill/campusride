@@ -22,6 +22,7 @@
 <p align="center">
   <img src="docs/screenshots/01-login.png" alt="Inicio de sesión" width="200" />
   <img src="docs/screenshots/02-viajes.png" alt="Viajes disponibles" width="200" />
+  <img src="docs/screenshots/05-mapa.png" alt="Ruta del viaje en el mapa" width="200" />
   <img src="docs/screenshots/03-mis-viajes.png" alt="Mis viajes" width="200" />
   <img src="docs/screenshots/04-publicar.png" alt="Publicar un viaje" width="200" />
 </p>
@@ -40,7 +41,9 @@ CampusRide conecta a conductores y pasajeros que comparten trayecto hacia el cam
 - Roles **pasajero** y **conductor**, intercambiables desde el perfil.
 - Publicación de viajes con selector de fecha/hora, cupos y precio en CLP.
 - Búsqueda en vivo, reservas y cancelaciones con control de cupo (sin sobrerreservas).
+- **Mapa de la ruta** de cada viaje con Leaflet y OpenStreetMap (sin API key), con distancia aproximada.
 - Pestaña «Mis viajes» para ver reservas y viajes publicados.
+- **PWA instalable**: se puede agregar a la pantalla de inicio y abre sin conexión.
 - Modo claro/oscuro automático y diseño *mobile-first*.
 - **Modo demo** sin configuración: los datos viven en el navegador. Con credenciales, usa **Firebase Auth + Firestore**.
 
@@ -111,7 +114,7 @@ Las contribuciones son bienvenidas: revisa [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ### 🗺 Próximos pasos
 
-Mapa con rutas, notificaciones push, calificaciones de conductores y chat entre pasajeros.
+Geocodificación de direcciones exactas (hoy el mapa reconoce comunas y campus de Santiago definidos en `src/app/core/places.ts`), notificaciones push, calificaciones de conductores y chat entre pasajeros.
 
 ---
 
@@ -127,7 +130,9 @@ CampusRide connects drivers and riders who share a commute to campus. Drivers pu
 - **Passenger** and **driver** roles, switchable from the profile.
 - Trip publishing with date/time picker, seat count and price (CLP).
 - Live search, bookings and cancellations with seat-capacity checks.
+- **Route map** for every trip (Leaflet + OpenStreetMap, no API key).
 - "My trips" tab for bookings and published trips.
+- **Installable PWA** with offline support.
 - Automatic light/dark theme, mobile-first design.
 - **Zero-config demo mode** (data stored in the browser); plug in credentials to use **Firebase Auth + Firestore**.
 

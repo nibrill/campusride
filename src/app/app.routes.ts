@@ -18,6 +18,10 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/trips/trips.page').then((m) => m.TripsPage),
       },
       {
+        path: 'viajes/:id',
+        loadComponent: () => import('./pages/trip-map/trip-map.page').then((m) => m.TripMapPage),
+      },
+      {
         path: 'publicar',
         loadComponent: () => import('./pages/publish/publish.page').then((m) => m.PublishPage),
       },

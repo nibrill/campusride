@@ -1,15 +1,16 @@
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { IonIcon } from '@ionic/angular';
 import { addIcons } from 'ionicons';
-import { arrowForward, peopleOutline, personCircleOutline, timeOutline } from 'ionicons/icons';
+import { arrowForward, mapOutline, peopleOutline, personCircleOutline, timeOutline } from 'ionicons/icons';
 
 import type { Trip } from '../../core/models';
 
 @Component({
   selector: 'app-trip-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CurrencyPipe, DatePipe, IonIcon],
+  imports: [CurrencyPipe, DatePipe, IonIcon, RouterLink],
   template: `
     <article class="cr-card">
       <header class="route">
@@ -30,6 +31,12 @@ import type { Trip } from '../../core/models';
           <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
           {{ seatsLeft() }} de {{ trip().seats }} asientos libres
         </li>
+        @if (showMapLink()) {
+          <li>
+            <ion-icon name="map-outline" aria-hidden="true"></ion-icon>
+            <a [routerLink]="['/app/viajes', trip().id]">Ver ruta en el mapa</a>
+          </li>
+        }
       </ul>
       <footer>
         <strong class="price">{{ trip().price | currency: 'CLP' : 'symbol-narrow' : '1.0-0' }}</strong>
@@ -63,6 +70,11 @@ import type { Trip } from '../../core/models';
       align-items: center;
       gap: 8px;
     }
+    .meta a {
+      color: var(--ion-color-primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
     footer {
       display: flex;
       align-items: center;
@@ -77,9 +89,10 @@ import type { Trip } from '../../core/models';
 })
 export class TripCardComponent {
   readonly trip = input.required<Trip>();
+  readonly showMapLink = input(true);
   readonly seatsLeft = computed(() => this.trip().seats - this.trip().passengers.length);
 
   constructor() {
-    addIcons({ arrowForward, peopleOutline, personCircleOutline, timeOutline });
+    addIcons({ arrowForward, mapOutline, peopleOutline, personCircleOutline, timeOutline });
   }
 }
