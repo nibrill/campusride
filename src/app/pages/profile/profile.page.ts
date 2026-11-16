@@ -11,7 +11,7 @@ import { UiService } from '../../core/ui.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [IonButton, IonContent, IonHeader, IonLabel, IonSegment, IonSegmentButton, IonToolbar],
   template: `
-    <ion-header [translucent]="true"><ion-toolbar></ion-toolbar></ion-header>
+    <ion-header class="ion-no-border"><ion-toolbar></ion-toolbar></ion-header>
     <ion-content>
       <h1 class="page-title">Perfil</h1>
       @if (auth.user(); as user) {

@@ -14,6 +14,13 @@
 
 </div>
 
+<p align="center">
+  <img src="docs/screenshots/01-login.png" alt="Inicio de sesión" width="200" />
+  <img src="docs/screenshots/02-viajes.png" alt="Viajes disponibles" width="200" />
+  <img src="docs/screenshots/03-mis-viajes.png" alt="Mis viajes" width="200" />
+  <img src="docs/screenshots/04-publicar.png" alt="Publicar un viaje" width="200" />
+</p>
+
 ---
 
 ## 🇪🇸 Español
