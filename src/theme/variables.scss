@@ -1,0 +1,89 @@
+// Tema de CampusRide: índigo (primario) + turquesa (secundario).
+:root {
+  --ion-font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --ion-color-primary: #4f46e5;
+  --ion-color-primary-rgb: 79, 70, 229;
+  --ion-color-primary-contrast: #fff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #4640ca;
+  --ion-color-primary-tint: #6159e8;
+
+  --ion-color-secondary: #0d9488;
+  --ion-color-secondary-rgb: 13, 148, 136;
+  --ion-color-secondary-contrast: #fff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #0b8277;
+  --ion-color-secondary-tint: #259f94;
+
+  --cr-surface: #fff;
+  --cr-muted: #64748b;
+  --cr-border: #e2e8f0;
+  --cr-gradient: linear-gradient(135deg, #4f46e5 0%, #0d9488 100%);
+  --ion-background-color: #f4f6fb;
+  --ion-background-color-rgb: 244, 246, 251;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cr-surface: #1b1f2e;
+    --cr-muted: #94a3b8;
+    --cr-border: #2b3145;
+    --ion-background-color: #0f121c;
+    --ion-background-color-rgb: 15, 18, 28;
+  }
+}
+
+// ---- Componentes compartidos ----
+ion-toolbar {
+  --background: transparent;
+  --border-width: 0;
+}
+
+.page-title {
+  margin: 8px 16px 4px;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+  margin: 0 16px 12px;
+  color: var(--cr-muted);
+  font-size: 0.95rem;
+}
+
+.cr-card {
+  margin: 12px 16px;
+  padding: 16px;
+  background: var(--cr-surface);
+  border: 1px solid var(--cr-border);
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgb(15 23 42 / 6%);
+}
+
+.cr-empty {
+  margin: 48px 24px;
+  text-align: center;
+  color: var(--cr-muted);
+
+  ion-icon {
+    font-size: 56px;
+    opacity: 0.5;
+  }
+}
+
+.cr-form {
+  padding: 0 16px 24px;
+
+  ion-input,
+  ion-select {
+    margin-bottom: 14px;
+  }
+}
+
+.cr-error {
+  color: var(--ion-color-danger);
+  font-size: 0.8rem;
+  margin: -8px 4px 12px;
+}

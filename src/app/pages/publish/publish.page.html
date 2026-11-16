@@ -1,0 +1,64 @@
+<ion-header [translucent]="true"><ion-toolbar></ion-toolbar></ion-header>
+
+<ion-content>
+  <h1 class="page-title">Publicar un viaje</h1>
+
+  @if (!isDriver()) {
+  <div class="cr-empty">
+    <ion-icon name="car-sport-outline"></ion-icon>
+    <p>Solo los conductores pueden publicar viajes.</p>
+    <ion-button (click)="becomeDriver()">Quiero ser conductor</ion-button>
+  </div>
+  } @else {
+  <p class="page-subtitle">Cuéntale a otros estudiantes hacia dónde vas.</p>
+  <form class="cr-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <ion-input label="Origen" labelPlacement="floating" fill="outline" formControlName="origin"></ion-input>
+    @if (form.controls.origin.touched && form.controls.origin.invalid) {
+    <p class="cr-error">Indica el origen.</p>
+    }
+    <ion-input label="Destino" labelPlacement="floating" fill="outline" formControlName="destination"></ion-input>
+    @if (form.controls.destination.touched && form.controls.destination.invalid) {
+    <p class="cr-error">Indica el destino.</p>
+    }
+
+    <div class="cr-card">
+      <ion-datetime
+        presentation="date-time"
+        [min]="min"
+        formControlName="departureAt"
+        [preferWheel]="false"
+        locale="es-CL"
+      ></ion-datetime>
+    </div>
+
+    <ion-input
+      label="Asientos disponibles (1-8)"
+      labelPlacement="floating"
+      fill="outline"
+      type="number"
+      inputmode="numeric"
+      formControlName="seats"
+    ></ion-input>
+    @if (form.controls.seats.invalid) {
+    <p class="cr-error">Entre 1 y 8 asientos.</p>
+    }
+    <ion-input
+      label="Precio por asiento (CLP)"
+      labelPlacement="floating"
+      fill="outline"
+      type="number"
+      inputmode="numeric"
+      formControlName="price"
+    ></ion-input>
+    @if (form.controls.price.invalid) {
+    <p class="cr-error">Ingresa un precio válido.</p>
+    }
+
+    <ion-button type="submit" expand="block" [disabled]="busy()">
+      @if (busy()) {
+      <ion-spinner name="dots"></ion-spinner>
+      } @else { Publicar viaje }
+    </ion-button>
+  </form>
+  }
+</ion-content>

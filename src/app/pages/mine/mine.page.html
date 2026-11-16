@@ -1,0 +1,27 @@
+<ion-header [translucent]="true"><ion-toolbar></ion-toolbar></ion-header>
+
+<ion-content>
+  <h1 class="page-title">Mis viajes</h1>
+
+  <ion-segment class="ion-margin-horizontal" [value]="view()" (ionChange)="view.set($any($event).detail.value)">
+    <ion-segment-button value="booked"><ion-label>Reservados ({{ booked().length }})</ion-label></ion-segment-button>
+    <ion-segment-button value="published"
+      ><ion-label>Publicados ({{ published().length }})</ion-label></ion-segment-button
+    >
+  </ion-segment>
+
+  @if (!list().length) {
+  <div class="cr-empty">
+    <ion-icon name="list-outline"></ion-icon>
+    <p>{{ view() === 'booked' ? 'Aún no has reservado ningún viaje.' : 'Aún no has publicado viajes.' }}</p>
+  </div>
+  } @for (trip of list(); track trip.id) {
+  <app-trip-card [trip]="trip">
+    @if (view() === 'booked') {
+    <ion-button size="small" color="danger" fill="outline" (click)="cancel(trip)">Cancelar</ion-button>
+    } @else {
+    <ion-button size="small" color="danger" fill="outline" (click)="remove(trip)">Eliminar</ion-button>
+    }
+  </app-trip-card>
+  }
+</ion-content>

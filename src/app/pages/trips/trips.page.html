@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-searchbar
+      placeholder="Busca origen, destino o conductor"
+      [debounce]="150"
+      (ionInput)="query.set($any($event).detail.value ?? '')"
+    ></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($any($event))">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <h1 class="page-title">Viajes disponibles</h1>
+  <p class="page-subtitle">Comparte trayecto con otros estudiantes y ahorra.</p>
+
+  @if (loading() && !visible().length) {
+  <div class="cr-empty"><ion-spinner name="crescent"></ion-spinner></div>
+  } @else if (!visible().length) {
+  <div class="cr-empty">
+    <ion-icon name="car-sport-outline"></ion-icon>
+    <p>No hay viajes que coincidan. ¡Publica el primero desde la pestaña «Publicar»!</p>
+  </div>
+  } @for (trip of visible(); track trip.id) {
+  <app-trip-card [trip]="trip">
+    @switch (status(trip)) { @case ('mine') {
+    <ion-button size="small" fill="outline" disabled>Tu viaje</ion-button>
+    } @case ('booked') {
+    <ion-button size="small" color="secondary" fill="outline" disabled>Reservado</ion-button>
+    } @case ('full') {
+    <ion-button size="small" fill="outline" color="medium" disabled>Completo</ion-button>
+    } @default {
+    <ion-button size="small" (click)="reserve(trip)">Reservar</ion-button>
+    } }
+  </app-trip-card>
+  }
+</ion-content>
