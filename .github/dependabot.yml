@@ -1,0 +1,19 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      angular:
+        patterns: ['@angular/*', '@angular-eslint/*', 'angular-eslint']
+      ionic:
+        patterns: ['@ionic/*', 'ionicons', '@capacitor/*']
+      dev-tools:
+        dependency-type: development
+        exclude-patterns: ['@angular/*', '@angular-eslint/*', 'angular-eslint', '@ionic/*']
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly

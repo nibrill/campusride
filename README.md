@@ -101,7 +101,7 @@ Este repositorio es una **plantilla**: pulsa [**Use this template**](https://git
 4. **Conecta tu backend:** toda la app habla con la clase abstracta `Backend` (`src/app/core/backend.ts`). Crea tu implementación (REST, Supabase, etc.) y regístrala en `src/main.ts`; no hay que tocar las pantallas.
 5. **Quita los datos de ejemplo:** las cuentas demo y los viajes de muestra se crean en `seed()` dentro de `src/app/core/local.backend.ts`.
 
-Las contribuciones son bienvenidas: revisa [CONTRIBUTING.md](CONTRIBUTING.md).
+Las contribuciones son bienvenidas: revisa [CONTRIBUTING.md](CONTRIBUTING.md). La arquitectura está explicada en [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) y el historial de versiones en el [CHANGELOG](CHANGELOG.md).
 
 ### Scripts
 
