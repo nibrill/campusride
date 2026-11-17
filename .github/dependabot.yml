@@ -5,6 +5,10 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 5
+    ignore:
+      # Angular 22 solo admite TypeScript 6.0 (peer dependency de @angular/build).
+      - dependency-name: typescript
+        update-types: ["version-update:semver-major"]
     groups:
       angular:
         patterns: ['@angular/*', '@angular-eslint/*', 'angular-eslint']
