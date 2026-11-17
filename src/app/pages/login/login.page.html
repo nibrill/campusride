@@ -1,81 +1,91 @@
 <ion-content [fullscreen]="true">
-  <section class="hero">
-    <div class="logo"><ion-icon name="car-sport-outline"></ion-icon></div>
-    <h1>CampusRide</h1>
-    <p>Viajes compartidos entre estudiantes. Llega al campus más rápido, más barato y acompañado.</p>
-  </section>
-
-  <section class="panel">
-    <ion-segment [value]="mode()" (ionChange)="setMode($any($event).detail.value)">
-      <ion-segment-button value="login"><ion-label>Ingresar</ion-label></ion-segment-button>
-      <ion-segment-button value="register"><ion-label>Crear cuenta</ion-label></ion-segment-button>
-    </ion-segment>
-
-    <form class="cr-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
-      @if (mode() === 'register') {
-      <ion-input
-        label="Nombre completo"
-        labelPlacement="floating"
-        fill="outline"
-        autocomplete="name"
-        formControlName="name"
-      ></ion-input>
-      @if (form.controls.name.touched && form.controls.name.invalid) {
-      <p class="cr-error">Ingresa tu nombre.</p>
-      } }
-
-      <ion-input
-        label="Correo"
-        labelPlacement="floating"
-        fill="outline"
-        type="email"
-        autocomplete="email"
-        formControlName="email"
-      ></ion-input>
-      @if (form.controls.email.touched && form.controls.email.invalid) {
-      <p class="cr-error">Ingresa un correo válido.</p>
-      }
-
-      <ion-input
-        label="Contraseña"
-        labelPlacement="floating"
-        fill="outline"
-        type="password"
-        autocomplete="current-password"
-        formControlName="password"
-      >
-        <ion-input-password-toggle slot="end"></ion-input-password-toggle>
-      </ion-input>
-      @if (form.controls.password.touched && form.controls.password.invalid) {
-      <p class="cr-error">Mínimo 6 caracteres.</p>
-      } @if (mode() === 'register') {
-      <ion-segment formControlName="role" class="role">
-        <ion-segment-button value="passenger"><ion-label>Soy pasajero</ion-label></ion-segment-button>
-        <ion-segment-button value="driver"><ion-label>Soy conductor</ion-label></ion-segment-button>
-      </ion-segment>
-      }
-
-      <ion-button type="submit" expand="block" [disabled]="busy()">
-        @if (busy()) {
-        <ion-spinner name="dots"></ion-spinner>
-        } @else { {{ mode() === 'login' ? 'Ingresar' : 'Crear cuenta' }} }
-      </ion-button>
-
-      @if (mode() === 'login') {
-      <ion-button type="button" fill="clear" expand="block" size="small" (click)="forgot()">
-        ¿Olvidaste tu contraseña?
-      </ion-button>
-      }
-    </form>
-
-    @if (isDemo) {
-    <div class="demo">
-      <span>Modo demo · prueba con una cuenta de ejemplo</span>
-      <div>
-        <ion-button size="small" fill="outline" (click)="useDemo('pasajero@demo.cl')">Pasajero</ion-button>
-        <ion-button size="small" fill="outline" (click)="useDemo('conductor@demo.cl')">Conductor</ion-button>
-      </div>
+  <div class="login">
+    <div class="brand">
+      <span class="mark"><ion-icon name="car-sport-outline"></ion-icon></span>
+      CampusRide
     </div>
-    }
-  </section>
+
+    <aside class="side" aria-hidden="true">
+      <h2>Comparte el trayecto al campus.</h2>
+      <p>Conecta con otros estudiantes que hacen tu mismo recorrido y ahorra en cada viaje.</p>
+    </aside>
+
+    <section class="panel">
+      <h1>{{ mode() === 'login' ? 'Bienvenido de vuelta' : 'Crea tu cuenta' }}</h1>
+      <p class="lead">
+        {{ mode() === 'login' ? 'Ingresa para ver los viajes disponibles.' : 'Solo te tomará un minuto.' }}
+      </p>
+      <ion-segment [value]="mode()" (ionChange)="setMode($any($event).detail.value)">
+        <ion-segment-button value="login"><ion-label>Ingresar</ion-label></ion-segment-button>
+        <ion-segment-button value="register"><ion-label>Crear cuenta</ion-label></ion-segment-button>
+      </ion-segment>
+
+      <form class="cr-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        @if (mode() === 'register') {
+        <ion-input
+          label="Nombre completo"
+          labelPlacement="floating"
+          fill="outline"
+          autocomplete="name"
+          formControlName="name"
+        ></ion-input>
+        @if (form.controls.name.touched && form.controls.name.invalid) {
+        <p class="cr-error">Ingresa tu nombre.</p>
+        } }
+
+        <ion-input
+          label="Correo"
+          labelPlacement="floating"
+          fill="outline"
+          type="email"
+          autocomplete="email"
+          formControlName="email"
+        ></ion-input>
+        @if (form.controls.email.touched && form.controls.email.invalid) {
+        <p class="cr-error">Ingresa un correo válido.</p>
+        }
+
+        <ion-input
+          label="Contraseña"
+          labelPlacement="floating"
+          fill="outline"
+          type="password"
+          autocomplete="current-password"
+          formControlName="password"
+        >
+          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+        </ion-input>
+        @if (form.controls.password.touched && form.controls.password.invalid) {
+        <p class="cr-error">Mínimo 6 caracteres.</p>
+        } @if (mode() === 'register') {
+        <ion-segment formControlName="role" class="role">
+          <ion-segment-button value="passenger"><ion-label>Soy pasajero</ion-label></ion-segment-button>
+          <ion-segment-button value="driver"><ion-label>Soy conductor</ion-label></ion-segment-button>
+        </ion-segment>
+        }
+
+        <ion-button type="submit" expand="block" [disabled]="busy()">
+          @if (busy()) {
+          <ion-spinner name="dots"></ion-spinner>
+          } @else { {{ mode() === 'login' ? 'Ingresar' : 'Crear cuenta' }} }
+        </ion-button>
+
+        @if (mode() === 'login') {
+        <ion-button type="button" fill="clear" expand="block" size="small" (click)="forgot()">
+          ¿Olvidaste tu contraseña?
+        </ion-button>
+        }
+      </form>
+
+      @if (isDemo) {
+      <div class="demo">
+        <span>Modo demo: entra con una cuenta de ejemplo.</span>
+        <div>
+          <ion-button size="small" fill="outline" (click)="useDemo('pasajero@demo.cl')">Pasajero</ion-button>
+          <ion-button size="small" fill="outline" (click)="useDemo('conductor@demo.cl')">Conductor</ion-button>
+        </div>
+      </div>
+      }
+    </section>
+  </div>
 </ion-content>

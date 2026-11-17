@@ -46,7 +46,7 @@ import { UiService } from '../../core/ui.service';
       color: #fff;
       font-size: 1.8rem;
       font-weight: 700;
-      background: var(--cr-gradient);
+      background: var(--ion-color-primary);
     }
     h2 {
       margin: 12px 0 2px;

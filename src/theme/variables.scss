@@ -1,75 +1,133 @@
-// Tema de CampusRide: índigo (primario) + turquesa (secundario).
+// Tema de CampusRide: una sola tinta de marca sobre neutros fríos, sin degradados.
 :root {
-  --ion-font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --ion-font-family: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
-  --ion-color-primary: #4f46e5;
-  --ion-color-primary-rgb: 79, 70, 229;
+  --ion-color-primary: #4338ca;
+  --ion-color-primary-rgb: 67, 56, 202;
   --ion-color-primary-contrast: #fff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #4640ca;
-  --ion-color-primary-tint: #6159e8;
+  --ion-color-primary-shade: #3b32b2;
+  --ion-color-primary-tint: #554bd0;
 
-  --ion-color-secondary: #0d9488;
-  --ion-color-secondary-rgb: 13, 148, 136;
+  --ion-color-secondary: #0f766e;
+  --ion-color-secondary-rgb: 15, 118, 110;
   --ion-color-secondary-contrast: #fff;
   --ion-color-secondary-contrast-rgb: 255, 255, 255;
-  --ion-color-secondary-shade: #0b8277;
-  --ion-color-secondary-tint: #259f94;
 
+  --ion-background-color: #f7f8fa;
+  --ion-background-color-rgb: 247, 248, 250;
+  --ion-text-color: #101828;
+  --ion-text-color-rgb: 16, 24, 40;
   --cr-surface: #fff;
-  --cr-muted: #64748b;
-  --cr-border: #e2e8f0;
-  --cr-gradient: linear-gradient(135deg, #4f46e5 0%, #0d9488 100%);
-  --ion-background-color: #f4f6fb;
-  --ion-background-color-rgb: 244, 246, 251;
+  --cr-text: #101828;
+  --cr-muted: #667085;
+  --cr-border: #e4e7ec;
+  --cr-radius: 14px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --cr-surface: #1b1f2e;
-    --cr-muted: #94a3b8;
-    --cr-border: #2b3145;
-    --ion-background-color: #0f121c;
-    --ion-background-color-rgb: 15, 18, 28;
+    --ion-background-color: #0c0e14;
+    --ion-background-color-rgb: 12, 14, 20;
+    --ion-text-color: #f2f4f7;
+    --ion-text-color-rgb: 242, 244, 247;
+    --cr-surface: #151922;
+    --cr-text: #f2f4f7;
+    --cr-muted: #98a2b3;
+    --cr-border: #272d3a;
+    --ion-color-primary: #554bd0;
   }
 }
 
-// ---- Componentes compartidos ----
+// ---- Base ----
+ion-content {
+  --background: var(--ion-background-color);
+}
+
 ion-toolbar {
-  --background: transparent;
+  --background: var(--ion-background-color);
   --border-width: 0;
 }
 
+ion-tab-bar {
+  --background: var(--cr-surface);
+  --border: 1px solid var(--cr-border);
+}
+
+ion-button {
+  --border-radius: 10px;
+  text-transform: none;
+  font-weight: 600;
+  letter-spacing: 0;
+  --box-shadow: none;
+}
+
+ion-input {
+  --border-radius: 10px;
+}
+
+ion-segment {
+  --background: var(--cr-border);
+  border-radius: 10px;
+}
+
+ion-segment-button {
+  text-transform: none;
+  font-weight: 600;
+  letter-spacing: 0;
+  --indicator-color: var(--cr-surface);
+  --indicator-box-shadow: 0 1px 2px rgb(16 24 40 / 10%);
+  --border-radius: 8px;
+  --color-checked: var(--cr-text);
+  --color: var(--cr-muted);
+  --indicator-height: 38px;
+  min-height: 38px;
+}
+
+ion-segment-button::part(indicator-background) {
+  border-radius: 8px;
+}
+
+ion-searchbar {
+  --box-shadow: none;
+  --border-radius: 10px;
+  --background: var(--cr-surface);
+  --border: 1px solid var(--cr-border);
+}
+
+// ---- Componentes compartidos ----
 .page-title {
-  margin: 8px 16px 4px;
-  font-size: 1.6rem;
-  font-weight: 800;
+  margin: 12px 16px 4px;
+  font-size: 1.5rem;
+  font-weight: 650;
   letter-spacing: -0.02em;
+  color: var(--cr-text);
 }
 
 .page-subtitle {
-  margin: 0 16px 12px;
+  margin: 0 16px 16px;
   color: var(--cr-muted);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
 }
 
 .cr-card {
-  margin: 12px 16px;
+  margin: 10px 16px;
   padding: 16px;
   background: var(--cr-surface);
   border: 1px solid var(--cr-border);
-  border-radius: 18px;
-  box-shadow: 0 6px 18px rgb(15 23 42 / 6%);
+  border-radius: var(--cr-radius);
 }
 
 .cr-empty {
-  margin: 48px 24px;
+  margin: 56px 32px;
   text-align: center;
   color: var(--cr-muted);
+  font-size: 0.9rem;
 
   ion-icon {
-    font-size: 56px;
-    opacity: 0.5;
+    font-size: 40px;
+    opacity: 0.55;
   }
 }
 
@@ -86,4 +144,8 @@ ion-toolbar {
   color: var(--ion-color-danger);
   font-size: 0.8rem;
   margin: -8px 4px 12px;
+}
+
+ion-header.header-md::after {
+  display: none;
 }

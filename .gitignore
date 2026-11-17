@@ -80,3 +80,5 @@ Thumbs.db
 /.angular
 /npm-cache
 .env
+/test-results
+/playwright-report

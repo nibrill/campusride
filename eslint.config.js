@@ -5,7 +5,7 @@ const { defineConfig } = require('eslint/config');
 
 module.exports = defineConfig([
   {
-    ignores: ['www/**', 'dist/**', 'coverage/**', '.angular/**', 'android/**', 'ios/**'],
+    ignores: ['e2e/**', 'test-results/**', 'playwright-report/**', 'www/**', 'dist/**', 'coverage/**', '.angular/**', 'android/**', 'ios/**'],
   },
   ionic,
   {

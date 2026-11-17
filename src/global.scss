@@ -38,3 +38,6 @@
 
 /* Mapa (Leaflet) */
 @import 'leaflet/dist/leaflet.css';
+
+/* Tipografía (empaquetada: no depende de servicios externos) */
+@import '@fontsource-variable/inter';

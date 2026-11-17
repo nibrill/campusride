@@ -13,11 +13,10 @@ import type { Trip } from '../../core/models';
   imports: [CurrencyPipe, DatePipe, IonIcon, RouterLink],
   template: `
     <article class="cr-card">
-      <header class="route">
-        <span>{{ trip().origin }}</span>
-        <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-        <span>{{ trip().destination }}</span>
-      </header>
+      <ol class="route" aria-label="Ruta">
+        <li>{{ trip().origin }}</li>
+        <li>{{ trip().destination }}</li>
+      </ol>
       <ul class="meta">
         <li>
           <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
@@ -46,20 +45,46 @@ import type { Trip } from '../../core/models';
   `,
   styles: `
     .route {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-weight: 700;
-      font-size: 1.05rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-weight: 600;
+      font-size: 1rem;
     }
-    .route ion-icon {
-      color: var(--ion-color-primary);
+    .route li {
+      position: relative;
+      padding: 0 0 14px 24px;
+    }
+    .route li:last-child {
+      padding-bottom: 0;
+    }
+    .route li::before {
+      content: '';
+      position: absolute;
+      left: 2px;
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid var(--ion-color-primary);
+      background: var(--ion-color-primary);
+    }
+    .route li:last-child::before {
+      background: var(--cr-surface);
+    }
+    .route li:first-child::after {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 17px;
+      bottom: -3px;
+      border-left: 2px solid var(--cr-border);
     }
     .meta {
       list-style: none;
-      margin: 12px 0;
-      padding: 0;
+      margin: 16px 0 14px;
+      padding: 14px 0 0;
+      border-top: 1px solid var(--cr-border);
       display: grid;
       gap: 6px;
       color: var(--cr-muted);
@@ -83,7 +108,8 @@ import type { Trip } from '../../core/models';
     }
     .price {
       font-size: 1.25rem;
-      color: var(--ion-color-secondary);
+      color: var(--cr-text);
+      font-weight: 650;
     }
   `,
 })

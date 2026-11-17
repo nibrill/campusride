@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚗 CampusRide
+# CampusRide
 
 **Viajes compartidos entre estudiantes universitarios · Carpooling for university students**
 
@@ -11,11 +11,11 @@
 [![CI](https://github.com/nibrill/campusride/actions/workflows/ci.yml/badge.svg)](https://github.com/nibrill/campusride/actions/workflows/ci.yml)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-### [▶ Probar la demo en vivo](https://nibrill.github.io/campusride/) · [Usar como plantilla](https://github.com/nibrill/campusride/generate)
+### [Probar la demo en vivo](https://nibrill.github.io/campusride/) · [Usar como plantilla](https://github.com/nibrill/campusride/generate)
 
 <img src="docs/demo.gif" alt="Demostración de CampusRide" width="260" />
 
-[🇪🇸 Español](#-español) · [🇬🇧 English](#-english)
+[Español](#español) · [English](#english)
 
 </div>
 
@@ -29,13 +29,13 @@
 
 ---
 
-## 🇪🇸 Español
+## Español
 
 CampusRide conecta a conductores y pasajeros que comparten trayecto hacia el campus. Los conductores publican viajes con origen, destino, horario, cupos y precio; los pasajeros buscan y reservan asiento en segundos.
 
 > Proyecto universitario rediseñado desde cero (antes *TelLevoApp*): nueva arquitectura, interfaz moderna y backend intercambiable.
 
-### ✨ Características
+### Características
 
 - Registro e inicio de sesión con validaciones y recuperación de contraseña.
 - Roles **pasajero** y **conductor**, intercambiables desde el perfil.
@@ -47,7 +47,7 @@ CampusRide conecta a conductores y pasajeros que comparten trayecto hacia el cam
 - Modo claro/oscuro automático y diseño *mobile-first*.
 - **Modo demo** sin configuración: los datos viven en el navegador. Con credenciales, usa **Firebase Auth + Firestore**.
 
-### 🧱 Arquitectura
+### Arquitectura
 
 ```
 src/app
@@ -58,9 +58,9 @@ src/app
 └── pages/           # login · tabs · trips · publish · mine · profile
 ```
 
-Angular 22 con componentes *standalone*, *signals*, `OnPush`, control de flujo `@if/@for`, rutas con *lazy loading* y TypeScript estricto. El SDK de Firebase solo se descarga si lo configuras.
+Interfaz con tipografía Inter empaquetada, tema claro/oscuro y una sola tinta de marca. Angular 22 con componentes *standalone*, *signals*, `OnPush`, control de flujo `@if/@for`, rutas con *lazy loading* y TypeScript estricto. El SDK de Firebase solo se descarga si lo configuras.
 
-### 🚀 Inicio rápido
+### Inicio rápido
 
 ```bash
 git clone https://github.com/nibrill/campusride.git
@@ -71,7 +71,7 @@ npm start
 
 Abre `http://localhost:4200` y usa las cuentas de ejemplo (`pasajero@demo.cl` / `conductor@demo.cl`, contraseña `demo1234`).
 
-### 🔥 Usar Firebase (opcional)
+### Usar Firebase (opcional)
 
 1. Crea un proyecto en [Firebase Console](https://console.firebase.google.com), activa **Authentication (correo/contraseña)** y **Firestore**.
 2. Completa `firebase` en `src/environments/environment.ts` siguiendo `environment.example.ts`.
@@ -83,7 +83,7 @@ npx firebase-tools deploy --only firestore:rules
 
 > Las claves web de Firebase no son secretos, pero no las compartas con reglas abiertas. Las reglas de este repo restringen cada operación al usuario autenticado.
 
-### 📱 App móvil (Android / iOS)
+### App móvil (Android / iOS)
 
 ```bash
 npm run build
@@ -91,7 +91,7 @@ npx cap add android
 npx cap sync && npx cap open android
 ```
 
-### 🧩 Úsalo como base para tu proyecto
+### Úsalo como base para tu proyecto
 
 Este repositorio es una **plantilla**: pulsa [**Use this template**](https://github.com/nibrill/campusride/generate) para crear tu propia copia y luego:
 
@@ -103,7 +103,7 @@ Este repositorio es una **plantilla**: pulsa [**Use this template**](https://git
 
 Las contribuciones son bienvenidas: revisa [CONTRIBUTING.md](CONTRIBUTING.md).
 
-### 🛠 Scripts
+### Scripts
 
 | Comando | Descripción |
 | --- | --- |
@@ -111,20 +111,21 @@ Las contribuciones son bienvenidas: revisa [CONTRIBUTING.md](CONTRIBUTING.md).
 | `npm run build` | Compilación de producción |
 | `npm test` | Pruebas unitarias (Vitest) |
 | `npm run lint` | ESLint |
+| `npm run test:e2e` | Pruebas end-to-end con Playwright (el servidor de desarrollo se levanta solo) |
 
-### 🗺 Próximos pasos
+### Próximos pasos
 
 Geocodificación de direcciones exactas (hoy el mapa reconoce comunas y campus de Santiago definidos en `src/app/core/places.ts`), notificaciones push, calificaciones de conductores y chat entre pasajeros.
 
 ---
 
-## 🇬🇧 English
+## English
 
 CampusRide connects drivers and riders who share a commute to campus. Drivers publish trips (origin, destination, time, seats, price); riders search and book a seat in seconds.
 
 > A university project rebuilt from scratch (formerly *TelLevoApp*) with a clean architecture, a modern UI and a swappable backend.
 
-### ✨ Features
+### Features
 
 - Sign up / sign in with validation and password reset.
 - **Passenger** and **driver** roles, switchable from the profile.
@@ -136,7 +137,7 @@ CampusRide connects drivers and riders who share a commute to campus. Drivers pu
 - Automatic light/dark theme, mobile-first design.
 - **Zero-config demo mode** (data stored in the browser); plug in credentials to use **Firebase Auth + Firestore**.
 
-### 🚀 Quick start
+### Quick start
 
 ```bash
 git clone https://github.com/nibrill/campusride.git
@@ -147,14 +148,14 @@ npm start
 
 Sign in with the demo accounts (`pasajero@demo.cl` / `conductor@demo.cl`, password `demo1234`).
 
-### 🔥 Firebase (optional)
+### Firebase (optional)
 
 Fill in the `firebase` block in `src/environments/environment.ts` (see `environment.example.ts`) and deploy the included Firestore rules with `npx firebase-tools deploy --only firestore:rules`.
 
-### 🧩 Use it as a starter
+### Use it as a starter
 
 Click [**Use this template**](https://github.com/nibrill/campusride/generate), then rename the app (`package.json`, `capacitor.config.ts`), restyle it in `src/theme/variables.scss`, and plug in your own backend by implementing the abstract `Backend` class (`src/app/core/backend.ts`) and registering it in `src/main.ts`. Try the [live demo](https://nibrill.github.io/campusride/) first.
 
-### 📄 License
+### License
 
 [MIT](LICENSE) © Nicolás Brill
