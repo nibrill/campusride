@@ -40,7 +40,7 @@
     "@angular/cli": "22.2.7",
     "@angular/compiler-cli": "22.2.6",
     "@angular/language-service": "22.2.6",
-    "@capacitor/cli": "8.6.0",
+    "@capacitor/cli": "8.6.2",
     "@ionic/angular-toolkit": "^13.0.0",
     "@ionic/eslint-config": "^0.5.0",
     "@ionic/prettier-config": "^4.0.0",
@@ -48,12 +48,12 @@
     "@types/leaflet": "^1.9.22",
     "@types/node": "^26.6.6",
     "angular-eslint": "22.6.0",
-    "eslint": "^10.10.0",
-    "jsdom": "^31.0.0",
-    "prettier": "^3.9.10",
+    "eslint": "^10.15.0",
+    "jsdom": "^31.0.1",
+    "prettier": "^3.10.1",
     "typescript": "~6.0.0",
-    "typescript-eslint": "^8.61.0",
-    "vitest": "^5.1.0"
+    "typescript-eslint": "^8.73.0",
+    "vitest": "^5.1.1"
   },
   "prettier": "@ionic/prettier-config",
   "description": "Plataforma de viajes compartidos para estudiantes universitarios"
